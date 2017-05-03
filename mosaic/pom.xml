@@ -8,7 +8,8 @@
 	<modules>
 		<module>mosaic-xssAttack</module>
 		<module>mosaic-retry</module>
-	</modules>
+        <module>mosaic-https</module>
+    </modules>
 
 	<!-- 指定为父类 -->
 	<packaging>pom</packaging>
