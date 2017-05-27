@@ -11,6 +11,7 @@
         <module>spring-cloud-eureka-server</module>
         <module>mosaic-logging</module>
         <module>mosaic-developing-web-application-27</module>
+        <module>spring-mvc</module>
     </modules>
 
     <!-- 指定为父类 -->
