@@ -5,21 +5,26 @@
     <artifactId>mosaic</artifactId>
     <version>0.0.1-SNAPSHOT</version>
 
+    <!-- 指定为父类 -->
     <modules>
         <module>mosaic-xssAttack</module>
         <module>mosaic-retry</module>
-        <module>spring-cloud-eureka-server</module>
         <module>mosaic-logging</module>
         <module>mosaic-developing-web-application-27</module>
         <module>spring-mvc</module>
-        <module>springbootcoresix</module>
         <module>spring-boot-core-six</module>
+        <module>spring-boot-web-serven</module>
+        <module>spring-boot-web-serrven-six-websocket</module>
+        <module>spring-boot-web-serrven-six-websocket2</module>
+        <module>mosaic-boot-swagger</module>
+        <module>spring-boot-web-sev-sev-bootstrap-angularj</module>
+        <module>mosaic-boot-fileupload</module>
     </modules>
 
-    <!-- 指定为父类 -->
+    <!-- 指定引用項目版本号 -->
     <packaging>pom</packaging>
 
-    <!-- 指定引用項目版本号 -->
+    <!-- 添加项目依赖（此处暂时为octopus项目的引用，慢慢了解各个的作用ing） -->
     <properties>
         <java.version>1.8</java.version>
         <springboot.version>1.5.3.RELEASE</springboot.version>
@@ -27,9 +32,9 @@
         <jackson.version>2.8.8</jackson.version>
         <slf4j.version>1.7.24</slf4j.version>
         <spring.cloud>1.3.0.RELEASE</spring.cloud>
+        <swagger2.version>2.6.1</swagger2.version>
     </properties>
 
-    <!-- 添加项目依赖（此处暂时为octopus项目的引用，慢慢了解各个的作用ing） -->
     <dependencyManagement>
         <dependencies>
             <!-- junit -->
@@ -189,12 +194,6 @@
                 <artifactId>spring-webmvc</artifactId>
                 <version>${spring.version}</version>
             </dependency>
-            <!--spring cloud 发现服务-->
-            <dependency>
-                <groupId>org.springframework.cloud</groupId>
-                <artifactId>spring-cloud-starter-eureka-server</artifactId>
-                <version>${spring.cloud}</version>
-            </dependency>
 
             <!-- aspectj -->
             <dependency>
@@ -244,40 +243,6 @@
                 <groupId>com.fasterxml.jackson.core</groupId>
                 <artifactId>jackson-databind</artifactId>
                 <version>${jackson.version}</version>
-            </dependency>
-
-            <!-- dubbo -->
-            <dependency>
-                <groupId>com.alibaba</groupId>
-                <artifactId>dubbo</artifactId>
-                <version>2.5.3</version>
-                <exclusions>
-                    <exclusion>
-                        <groupId>org.springframework</groupId>
-                        <artifactId>spring</artifactId>
-                    </exclusion>
-                </exclusions>
-            </dependency>
-
-            <!-- zookeeper / client -->
-            <dependency>
-                <groupId>org.apache.zookeeper</groupId>
-                <artifactId>zookeeper</artifactId>
-                <version>3.4.9</version>
-                <exclusions>
-                    <exclusion>
-                        <groupId>org.slf4j</groupId>
-                        <artifactId>slf4j-api</artifactId>
-                    </exclusion>
-                    <exclusion>
-                        <groupId>org.slf4j</groupId>
-                        <artifactId>slf4j-log4j12</artifactId>
-                    </exclusion>
-                    <exclusion>
-                        <groupId>log4j</groupId>
-                        <artifactId>log4j</artifactId>
-                    </exclusion>
-                </exclusions>
             </dependency>
             <dependency>
                 <groupId>com.101tec</groupId>
@@ -377,8 +342,36 @@
                 <artifactId>spring-retry</artifactId>
                 <version>1.1.2.RELEASE</version>
             </dependency>
+            <!--thymeleaf-->
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-thymeleaf</artifactId>
+                <version>${springboot.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-websocket</artifactId>
+                <version>${springboot.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-security</artifactId>
+                <version>${springboot.version}</version>
+            </dependency>
+            <!--swagger-->
+            <dependency>
+                <groupId>io.springfox</groupId>
+                <artifactId>springfox-swagger2</artifactId>
+                <version>${swagger2.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.springfox</groupId>
+                <artifactId>springfox-swagger-ui</artifactId>
+                <version>${swagger2.version}</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
+
 
     <!-- 给出Maven部署当前项目的构件到远程库时，关于远程库的配置（现公司私服） -->
     <distributionManagement>
@@ -394,7 +387,8 @@
         </snapshotRepository>
     </distributionManagement>
 
-    <!-- -->
+
+
     <build>
         <finalName>${project.artifactId}</finalName>
         <resources>
