@@ -19,6 +19,14 @@
         <module>mosaic-boot-swagger</module>
         <module>spring-boot-web-sev-sev-bootstrap-angularj</module>
         <module>mosaic-boot-fileupload</module>
+        <module>mosaic-boot-shiro-stateless</module>
+        <module>mosaic-boot-shiro</module>
+        <module>mosaic-java-basis</module>
+        <module>spring-boot-activemq</module>
+        <module>spring-boot-i18n</module>
+        <module>mosaic-boot-fastjson</module>
+        <module>mosaic-spring-motan</module>
+        <module>mosaic-boot-async</module>
     </modules>
 
     <!-- 指定引用項目版本号 -->
@@ -369,6 +377,19 @@
                 <artifactId>springfox-swagger-ui</artifactId>
                 <version>${swagger2.version}</version>
             </dependency>
+            <!-- 添加redis支持-->
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-data-redis</artifactId>
+                <version>${springboot.version}</version>
+            </dependency>
+            <!-- activemq support -->
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-activemq</artifactId>
+                <version>${springboot.version}</version>
+            </dependency>
+
         </dependencies>
     </dependencyManagement>
 
